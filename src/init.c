@@ -6,7 +6,7 @@
 /*   By: ccottin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 12:43:42 by ccottin           #+#    #+#             */
-/*   Updated: 2022/04/04 17:33:44 by ccottin          ###   ########.fr       */
+/*   Updated: 2022/05/24 19:06:42 by ccottin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ int	init_img(t_data *d)
 int	init_window(t_data *d)
 {
 	d->win.mlx = mlx_init();
+	if (!d->win.mlx)
+		return (-1);
 	mlx_get_screen_size(d->win.mlx, &(d->win.width), &(d->win.height));
 	if (d->win.width < (d->map.ord_x * 40)
 		&& d->win.height < (d->map.ord_y * 40))
